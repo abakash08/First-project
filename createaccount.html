@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title>Create account</title>
+    <link rel= "stylesheet" href = "create.css"/>
+    <script>
+      var obj = {fullname:"",username:"",emailaddress:"",phonenumber:"",password:"",Cpassword:""};
+      var arr = [];
+    function Create()
+    {
+        var fullname = document.getElementById('fname').value;
+        var username = document.getElementById('uname').value;
+        var emailaddress = document.getElementById('email').value;
+        var phonenumber = document.getElementById('phnum').value;
+        var password = document.getElementById('pass').value;
+        var Cpassword = document.getElementById('cpass').value;
+        
+        if(fullname=="")
+        {
+            alert('Enter your name');
+        }
+        else if(username=="")
+        {
+            alert('Enter your username');
+        }
+        else if(emailaddress=="")
+        {
+            alert('Enter your email address');
+        }
+        else if(phonenumber=="")
+        {
+            alert('Enter your phone number');
+        }
+        else if(phonenumber.length!=10)
+        {
+            alert('Enter valid phone number');
+        }
+        else if(password=="")
+        {
+            alert('Enter your password');
+        }
+        else if(Cpassword=="")
+        {
+            alert('Enter your confirm password');
+        }
+        else if(password!=Cpassword)
+        {
+            alert("Password doesn't match");
+        }
+        else 
+        {
+        var cloneobj = JSON.parse(JSON.stringify(obj));
+        console.log(cloneobj);
+        cloneobj.fullname = fullname;
+        cloneobj.username = username;
+        cloneobj.emailaddress = emailaddress;
+        cloneobj.phonenumber = phonenumber;
+        cloneobj.password = password;
+        cloneobj.Cpassword = Cpassword;
+        arr.push(cloneobj);
+        }
+
+    }
+   
+
+    </script>
+    </head>
+
+    <body>
+    <div class="container">
+    <h2 class="title">Create Account</h2>
+    
+    <div class="content">
+    <form action= #>
+    <div class = "user-details">
+    
+        <div class = "input-box">
+        <span class = "details">Full Name</span>
+        <input id = "fname"placeholder = "Enter your name" type= "text"/>
+        </div>
+        <div class = "input-box">
+        <span class= "details">Username</span>
+        <input id = "uname" placeholder = "Enter your username" type= "text"/>
+        </div>
+    
+        <div class = "input-box">
+        <span class = "details">Email Address</span>
+        <input id="email" placeholder= "Enter your email" type= "email"/>
+        </div>
+        <div class = "input-box">
+        <span class = "details">Phone Number</span>
+        <input id="phnum" placeholder= "0987654321" type= "tel" pattern="[0-9]{10}"/>
+        </div>
+    
+        <div class = "input-box">
+        <span class = "details">Password</span>
+        <input id="pass" placeholder= "Enter your password" type= "password"/>
+        </div>
+        <div class = "input-box">
+        <span class = "details">Confirm password</span>
+        <input id="cpass" placeholder= "Confirm your Password" type= "password"/>
+        </div>
+    
+        <div class="button">
+        <input onclick= "Create()" type="submit" value="Create account">
+        </div>
+        </div>
+    </form>
+    </div>
+    </div>
+    </body>
+    </html>
